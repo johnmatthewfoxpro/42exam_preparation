@@ -16,11 +16,8 @@ void unexpected(char c)
         printf("Unexpected end of input\n");
 }
 
-// int ft_fail(int n)
 int ft_fail(void)
 {
-	// if (*s == '+' || *s == '*')
-	// 	return (n);
 	unexpected(*s);
 	error = 1;
 	return (0);
@@ -30,7 +27,7 @@ int ft_factor(void)
 {
 	int n = 0;
 
-	if (isdigit((unsigned char) *s))
+	if (isdigit((unsigned char)*s))
 		return (*s++ - '0');
 	if (*s == '(')
 	{
@@ -51,7 +48,6 @@ int ft_factor(void)
 		return (n);
 	}
 	return (ft_fail());
-	// return (ft_fail(n));
 }
 
 int ft_product(void)
@@ -85,11 +81,6 @@ int main(int argc, char **argv)
 	if (argc != 2)
 		return (1);
 	s = argv[1];
-	if (*s == '\0')
-	{
-		printf("0\n");
-		return (0);
-	}
 	result = ft_sum();
 	if (error)
 		return (1);
